@@ -1,0 +1,103 @@
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+header {
+    background-color: #FF4500;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+}
+.container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.services, .gallery, .testimonials, .faq, .contact {
+    margin-bottom: 40px;
+}
+.service, .calculator, .testimonial, .faq-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+.service:hover, .calculator:hover, .testimonial:hover, .faq-item:hover {
+    transform: translateY(-5px);
+}
+.service h2, .calculator h2, .gallery h2, .testimonials h2, .faq h2, .contact h2 {
+    color: #FF4500;
+    font-size: 1.5em;
+    margin-top: 0;
+}
+.service p, .calculator label, .calculator p, .faq p, .testimonial blockquote, .contact p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+.calculator input, .calculator button {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px 10px 20px;
+    padding: 10px;
+    font-size: 1em;
+}
+.calculator button {
+    background-color: #FF4500;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.gallery img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 10px 0;
+}
+.testimonials blockquote {
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+}
+.testimonials cite {
+    display: block;
+    text-align: right;
+    color: #888;
+    font-style: normal;
+    margin-top: 5px;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+footer p, footer a {
+    margin: 0;
+    color: #fff;
+    text-decoration: none;
+}
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+footer nav li {
+    margin: 0 10px;
+}

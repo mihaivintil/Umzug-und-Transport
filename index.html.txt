@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umzug und Transportdienst24</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Umzug und Transportdienst24</h1>
+        <p>Professionelle Umzugs- und Transportdienstleistungen</p>
+    </header>
+    <div class="container">
+        <section class="services">
+            <div class="service">
+                <h2>Transportdienst</h2>
+                <p>Wir bieten schnelle und sichere Transportdienstleistungen. Wir sind für lokale und nationale Transporte verfügbar.</p>
+            </div>
+            <div class="service">
+                <h2>Wohnungsumzüge</h2>
+                <p>Wir sorgen für stressfreie Umzüge Ihres Zuhauses. Wir übernehmen das Verpacken, Laden, Transportieren und Entladen.</p>
+            </div>
+            <div class="service">
+                <h2>Gewerbliche Umzüge</h2>
+                <p>Wir verlagern Büros und Geschäftsräume effizient und professionell, um Unterbrechungen Ihrer Tätigkeit zu minimieren.</p>
+            </div>
+        </section>
+        <div class="calculator">
+            <h2>Kalkulieren Sie den Preis für den Transport</h2>
+            <label for="ore">Stunden:</label>
+            <input type="number" id="ore" name="ore" required>
+            <label for="origin_transport">Abfahrtsort:</label>
+            <input type="text" id="origin_transport" name="origin_transport" required>
+            <label for="destination_transport">Zielort:</label>
+            <input type="text" id="destination_transport" name="destination_transport" required>
+            <button onclick="calculeazaDistantaTransport()">Entfernung berechnen</button>
+            <input type="hidden" id="distanta_transport">
+            <p id="result_transport"></p>
+            <div id="map_transport"></div>
+        </div>
+        <div class="calculator">
+            <h2>Kalkulieren Sie den Preis für Umzüge</h2>
+            <label for="camere">Anzahl der Zimmer:</label>
+            <input type="number" id="camere" name="camere" required>
+            <label for="volum">Möbelvolumen (m³):</label>
+            <input type="number" id="volum" name="volum" required>
+            <label for="suprafata">Hausfläche (m²):</label>
+            <input type="number" id="suprafata" name="suprafata" required>
+            <label for="etaj">Stockwerk:</label>
+            <input type="number" id="etaj" name="etaj" required>
+            <label for="origin_mutari">Startadresse:</label>
+            <input type="text" id="origin_mutari" value="Carlo-Mierendorff-Str. 1, 64711 Erbach" readonly>
+            <label for="destination_mutari">Zieladresse:</label>
+            <input type="text" id="destination_mutari" name="destination_mutari" required>
+            <button onclick="calculeazaDistantaMutari()">Entfernung berechnen</button>
+            <input type="hidden" id="distanta_mutari">
+            <p id="result_mutari"></p>
+            <div id="map_mutari"></div>
+        </div>
+        <section class="gallery">
+            <h2>Galerie</h2>
+            <img src="transport1.jpg" alt="Transportdienst 1">
+            <img src="transport2.jpg" alt="Transportdienst 2">
+            <img src="mutari1.jpg" alt="Umzüge 1">
+            <img src="mutari2.jpg" alt="Umzüge 2">
+        </section>
+        <section class="testimonials">
+            <h2>Referenzen</h2>
+            <blockquote>
+                <p>„Sehr professioneller Service! Unser Umzug war reibungslos und stressfrei.“</p>
+                <cite>– Maria Schmidt</cite>
+            </blockquote>
+            <blockquote>
+                <p>„Schneller und sicherer Transport unserer Waren. Sehr zu empfehlen!“</p>
+                <cite>– Hans Müller</cite>
+            </blockquote>
+        </section>
+        <section class="faq">
+            <h2>Häufig gestellte Fragen</h2>
+            <h3>Wie viel kostet ein Umzug?</h3>
+            <p>Der Preis hängt von der Anzahl der Zimmer, dem Möbelvolumen, der Hausfläche und der Entfernung ab. Nutzen Sie unseren Preisrechner für eine genaue Schätzung.</p>
+            <h3>Bieten Sie Verpackungsdienste an?</h3>
+            <p>Ja, wir bieten umfassende Verpackungsdienste an, um sicherzustellen, dass Ihre Sachen sicher transportiert werden.</p>
+        </section>
+        <section class="contact">
+            <h2>Kontakt</h2>
+            <p>Telefon: <a href="tel:015510077330">015510077330</a></p>
+            <p>Email: <a href="mailto:gmpv1993@gmail.com">gmpv1993@gmail.com</a></p>
+        </section>
+    </div>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="#">Impressum</a></li>
+                <li><a href="#">AGB</a></li>
+                <li><a href="#">Datenschutzerklärung</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCizhg4pM9PzwDKJ9iSeyw746MaV13kWDo&callback=initMap"></script>
+</body>
+</html>

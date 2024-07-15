@@ -1,0 +1,104 @@
+﻿function initMap() {
+    const erbach = { lat: 49.6615, lng: 8.9967 };
+    const mapTransport = new google.maps.Map(document.getElementById('map_transport'), {
+        zoom: 8,
+        center: erbach
+    });
+    const mapMutari = new google.maps.Map(document.getElementById('map_mutari'), {
+        zoom: 8,
+        center: erbach
+    });
+}
+
+
+function calculeazaDistantaTransport() {
+    const service = new google.maps.DistanceMatrixService();
+    const origin = document.getElementById('origin_transport').value;
+    const destination = document.getElementById('destination_transport').value;
+
+
+    service.getDistanceMatrix({
+        origins: [origin],
+        destinations: [destination],
+        travelMode: 'DRIVING',
+        unitSystem: google.maps.UnitSystem.METRIC
+    }, function(response, status) {
+        if (status !== 'OK') {
+            alert('Fehler: ' + status);
+        } else {
+            const distance = response.rows[0].elements[0].distance.value / 1000; // convert to km
+            document.getElementById('distanta_transport').value = distance;
+            calculeazaTransport();
+        }
+    });
+}
+
+
+function calculeazaTransport() {
+    const ore = parseFloat(document.getElementById('ore').value);
+    const distanta = parseFloat(document.getElementById('distanta_transport').value);
+
+
+    if (isNaN(ore) || isNaN(distanta)) {
+        alert('Bitte gültige Werte für alle Felder eingeben.');
+        return;
+    }
+
+
+    let cost;
+    if (distanta <= 60) {
+        cost = ore * 26 + distanta * 0.89;
+    } else {
+        cost = distanta * 0.89;
+    }
+
+
+    document.getElementById('result_transport').textContent = 'Geschätzte Transportkosten: ' + cost.toFixed(2) + ' €';
+}
+
+
+function calculeazaDistantaMutari() {
+    const service = new google.maps.DistanceMatrixService();
+    const origin = document.getElementById('origin_mutari').value;
+    const destination = document.getElementById('destination_mutari').value;
+
+
+    service.getDistanceMatrix({
+        origins: [origin],
+        destinations: [destination],
+        travelMode: 'DRIVING',
+        unitSystem: google.maps.UnitSystem.METRIC
+    }, function(response, status) {
+        if (status !== 'OK') {
+            alert('Fehler: ' + status);
+        } else {
+            const distance = response.rows[0].elements[0].distance.value / 1000; // convert to km
+            document.getElementById('distanta_mutari').value = distance;
+            calculeazaMutari();
+        }
+    });
+}
+
+
+function calculeazaMutari() {
+    const camere = parseInt(document.getElementById('camere').value);
+    const volum = parseFloat(document.getElementById('volum').value);
+    const suprafata = parseFloat(document.getElementById('suprafata').value);
+    const etaj = parseInt(document.getElementById('etaj').value);
+    const distanta = parseFloat(document.getElementById('distanta_mutari').value);
+
+
+    if (isNaN(camere) || isNaN(volum) || isNaN(suprafata) || isNaN(etaj) || isNaN(distanta)) {
+        alert('Bitte gültige Werte für alle Felder eingeben.');
+        return;
+    }
+
+
+    let cost = camere * 50 + volum * 15 + suprafata * 1 + distanta * 0.89;
+    if (etaj > 1) {
+        cost += (etaj - 1) * 50;
+    }
+
+
+    document.getElementById('result_mutari').textContent = 'Geschätzte Umzugskosten: ' + cost.toFixed(2) + ' €';
+}
